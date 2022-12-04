@@ -1,10 +1,10 @@
-const Employee = require("../lib/employee");
+const Employee = require("../lib/Employee");
 
 describe("Testing Employee Class", () => {
   it("should be able to create instance", () => {
     //data set up
     const name = "Ana";
-    const role = "Scientist"
+    const role = "Engineer"
     const id = 77;
     const email = "ana@ana.com";
     const offGitSchool = "userinput"     //Added this one myself
