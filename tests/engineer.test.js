@@ -7,7 +7,7 @@ describe("Testing Employee Class", () => {
     const role = "Intern"   //Added this one myself
     const id = 77;
     const email = "ana@ana.com";
-    const offGitSchool = "userinput"     //Added this one myself
+    const officeGitSchool = "userinput"     //Added this one myself
     //create case
     const employee = new Employee(name, role, id, email, officeGitSchool);
     //make assertion
