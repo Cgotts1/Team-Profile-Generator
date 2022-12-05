@@ -28,7 +28,8 @@ let employees = []
 
 
 console.log("Please build your team!");
-const questions = [
+
+const questionsManager = [
   {
     type: "input",
     message: "What is the team manager's name?",
@@ -61,6 +62,74 @@ const mainQuestion = [
 ];
 
 // Engineer
+
+const questionsEngineer = [
+  {
+    type: "input",
+    message: "What is the team Engineer's name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is the team Engineer's id?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is the team Engineer's email?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is the team Engineer's GitHub username?",
+    name: "gitHub",
+  },
+];
+
+
+
+const questionsIntern = [
+  {
+    type: "input",
+    message: "What is the team Intern's name?",
+    name: "name",
+  },
+  {
+    type: "input",
+    message: "What is the team Intern's id?",
+    name: "id",
+  },
+  {
+    type: "input",
+    message: "What is the team Intern's email?",
+    name: "email",
+  },
+  {
+    type: "input",
+    message: "What is the team Intern's school?",
+    name: "school",
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // if (answers.position === "Engineer") {
 //   const engQuestions =  [
@@ -184,7 +253,7 @@ function generateHTML(){
       <div class="info">
         <h4>ID: ${answers.id}</h4>
         <h4>Email: ${answers.email}</h4>
-        <h4>Office number: ${answers.offGitSchool}</h4>
+        <h4>Office number: ${answers.officeNumber}</h4>
       </div>
     </div>
   </div>  
@@ -197,89 +266,32 @@ function generateHTML(){
 
 }
 // Enables prompting of questions and takes in users input
-inquirer.prompt(questions).then((answers) => {
+inquirer.prompt(questionsManager).then((answers) => {
   let newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
   employees.push(newManager)
-
   console.log(employees);
+  
+    inquirer.prompt(mainQuestion).then((answers) => {        
 
-  inquirer.prompt(mainQuestion).then((answers) => {                       
 //"Engineer", "Intern", "I don't want to add anymore team members"
 if(answers.position === "Engineer"){
-  console.log("Engineer qs")
+  inquirer.prompt(questionsEngineer).then((answers) => {
+    let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
+    employees.push(newEngineer)
+  console.log(employees)})
+  
 }
 
 else if(answers.position === "Intern"){
-  console.log("Intern qs")
+  inquirer.prompt(questionsIntern).then((answers) => {
+    let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
+    employees.push(newIntern)
+  console.log(employees)})
+
 }else{
-  console.log("No more team members")
+  console.log("Generating team")
   //To do: Call generateProfile(employees) and forloop concating objects html cards
 }
-
-
   })
 
 });
-
-// {
-//   type: "input",
-//   message: "What is your engineer's name?",
-//   name: "name",
-// },
-// {
-//   type: "input",
-//   message: "What is your engineer's id?",
-//   name: "id",
-// },
-// {
-//   type: "input",
-//   message: "What is your engineer's email?",
-//   name: "email",
-// },
-// {
-//   type: "input",
-//   message: "What is your engineer's GitHub username?",
-//   name: "offGitSchool",
-// },
-// {
-//   type: "input",
-//   message: "What is your interns's name?",
-//   name: "name",
-// },
-// {
-//   type: "input",
-//   message: "What is your intern's id?",
-//   name: "id",
-// },
-// {
-//   type: "input",
-//   message: "What is your intern's email?",
-//   name: "email",
-// },
-// {
-//   type: "input",
-//   message: "What is your intern's school?",
-//   name: "offGitSchool",
-// },
-
-
-
-
-// askToPlayAgain() {
-//   inquirer
-//     .prompt([
-//       {
-//         type: "confirm",
-//         name: "choice",
-//         message: "Play Again?"
-//       }
-//     ])
-//     .then(val => {
-//     
-//       if (val.choice) {
-//         this.play();
-//       } else {
-//         this.quit();
-//       }
-//     });
-// }
