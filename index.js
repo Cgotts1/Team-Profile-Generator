@@ -13,22 +13,18 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const { log } = require("console");
+// const { log } = require("console");
+// const Employee = require("./lib/Employee")
 
-// Series of questions that will be shown in the terminal after running node
+
+
 let employees = []
 
 
-
-// let newIntern = new Intern(answer.name, answer.id, answer.email, answer.school)
-// employees.push(newIntern)
-
-// let newEngineer = new Engineer(answer.name, answer.id, answer.email, answer.gitHub)
-// employees.push(newEngineer)
-
-
+// Console.log
 console.log("Please build your team!");
 
+// Questions at the beginning for creating a manager
 const questionsManager = [
   {
     type: "input",
@@ -52,6 +48,7 @@ const questionsManager = [
   },
 ];
 
+// Main question that will be asked everytime an employee has been created
 const mainQuestion = [
 {
   type: "list",
@@ -61,8 +58,8 @@ const mainQuestion = [
 }
 ];
 
-// Engineer
 
+// Questions for adding an Engineer
 const questionsEngineer = [
   {
     type: "input",
@@ -87,7 +84,7 @@ const questionsEngineer = [
 ];
 
 
-
+// Questions for adding an Intern
 const questionsIntern = [
   {
     type: "input",
@@ -110,103 +107,6 @@ const questionsIntern = [
     name: "school",
   },
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if (answers.position === "Engineer") {
-//   const engQuestions =  [
-//     {
-//       type: "input",
-//       message: "What is your engineer's name?",
-//       name: "name",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's id?",
-//       name: "id",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's email?",
-//       name: "email",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's GitHub username?",
-//       name: "offGitSchool",
-//     },
-//   ];
-// } else if(answers.position === "Intern"){
-//   const intQuestions = [
-//     {
-//       type: "input",
-//       message: "What is your engineer's name?",
-//       name: "name",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's id?",
-//       name: "id",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's email?",
-//       name: "email",
-//     },
-//     {
-//       type: "input",
-//       message: "What is your engineer's GitHub username?",
-//       name: "offGitSchool",
-//     },
-  
-//   ];
-// } else {
-//   console.log("Creating team")
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function generateHTML(){
@@ -262,6 +162,7 @@ function generateHTML(){
   // Outputs readme file
   fs.writeFile("./dist/output.html", template, () => {
     console.log("Creating team...");
+    generateHTML()
   });
 
 }
@@ -270,8 +171,19 @@ inquirer.prompt(questionsManager).then((answers) => {
   let newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
   employees.push(newManager)
   console.log(employees);
+  mainQuestionFunction()
+
+})
+
+
+
+
+
+
+
+function mainQuestionFunction(){
   
-    inquirer.prompt(mainQuestion).then((answers) => {        
+  inquirer.prompt(mainQuestion).then((answers) => {        
 
 //"Engineer", "Intern", "I don't want to add anymore team members"
 if(answers.position === "Engineer"){
@@ -279,6 +191,7 @@ if(answers.position === "Engineer"){
     let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
     employees.push(newEngineer)
   console.log(employees)})
+  mainQuestionFunction()
   
 }
 
@@ -287,11 +200,12 @@ else if(answers.position === "Intern"){
     let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
     employees.push(newIntern)
   console.log(employees)})
+  mainQuestionFunction()
+
 
 }else{
   console.log("Generating team")
   //To do: Call generateProfile(employees) and forloop concating objects html cards
 }
   })
-
-});
+}
