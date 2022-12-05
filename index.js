@@ -177,10 +177,6 @@ inquirer.prompt(questionsManager).then((answers) => {
 
 
 
-
-
-
-
 function mainQuestionFunction(){
   
   inquirer.prompt(mainQuestion).then((answers) => {        
@@ -190,8 +186,8 @@ if(answers.position === "Engineer"){
   inquirer.prompt(questionsEngineer).then((answers) => {
     let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
     employees.push(newEngineer)
-  console.log(employees)})
-  mainQuestionFunction()
+  console.log(employees)
+  mainQuestionFunction()})
   
 }
 
@@ -199,12 +195,13 @@ else if(answers.position === "Intern"){
   inquirer.prompt(questionsIntern).then((answers) => {
     let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
     employees.push(newIntern)
-  console.log(employees)})
-  mainQuestionFunction()
+  console.log(employees)
+  mainQuestionFunction()})
 
 
 }else{
   console.log("Generating team")
+  console.log(employees)
   //To do: Call generateProfile(employees) and forloop concating objects html cards
 }
   })
