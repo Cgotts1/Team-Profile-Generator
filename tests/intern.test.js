@@ -17,7 +17,6 @@ describe("Testing Employee Class", () => {
     expect(employee.id).toBe(id);
     expect(employee.email).toBe(email);
     expect(employee.officeGitSchool).toBe(officeGitSchool);
-
   });
 });
 

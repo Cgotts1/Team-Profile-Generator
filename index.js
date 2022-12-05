@@ -1,6 +1,5 @@
 //bring in inquirer
 
-//employee = [{Manager}, {Engineer}, {Intern} }
 
 //create a function that run inquierer prompt question .then(()=> inquirer.prompt.then)   Main point here: chain the promises so code doesnt end until you dont want anymore teammembers
 
@@ -10,12 +9,23 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// const emp = require("../Employee");
-// const eng = require("./Engineer");
-// const int = require("./Intern");
-// const man = require("./Manager");
+
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+const { log } = require("console");
 
 // Series of questions that will be shown in the terminal after running node
+let employees = []
+
+
+
+// let newIntern = new Intern(answer.name, answer.id, answer.email, answer.school)
+// employees.push(newIntern)
+
+// let newEngineer = new Engineer(answer.name, answer.id, answer.email, answer.gitHub)
+// employees.push(newEngineer)
+
 
 console.log("Please build your team!");
 const questions = [
@@ -37,17 +47,18 @@ const questions = [
   {
     type: "input",
     message: "What is the team manager's office number?",
-    name: "offGitSchool",
-  },
-  {
-    type: "list",
-    message: "Which type of team member would you like to add?",
-    name: "position",
-    choices: ["Engineer", "Intern", "I don't want to add anymore team members"],
+    name: "officeNumber",
   },
 ];
 
-
+const mainQuestion = [
+{
+  type: "list",
+  message: "Which type of team member would you like to add?",
+  name: "position",
+  choices: ["Engineer", "Intern", "I don't want to add anymore team members"],
+}
+];
 
 // Engineer
 
@@ -129,13 +140,10 @@ const questions = [
 
 
 
-
-
-// Enables prompting of questions and takes in users input
-inquirer.prompt(questions).then((answers) => {
+function generateHTML(){
   const template = `
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -186,6 +194,31 @@ inquirer.prompt(questions).then((answers) => {
   fs.writeFile("./dist/output.html", template, () => {
     console.log("Creating team...");
   });
+
+}
+// Enables prompting of questions and takes in users input
+inquirer.prompt(questions).then((answers) => {
+  let newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
+  employees.push(newManager)
+
+  console.log(employees);
+
+  inquirer.prompt(mainQuestion).then((answers) => {                       
+//"Engineer", "Intern", "I don't want to add anymore team members"
+if(answers.position === "Engineer"){
+  console.log("Engineer qs")
+}
+
+else if(answers.position === "Intern"){
+  console.log("Intern qs")
+}else{
+  console.log("No more team members")
+  //To do: Call generateProfile(employees) and forloop concating objects html cards
+}
+
+
+  })
+
 });
 
 // {
@@ -228,3 +261,25 @@ inquirer.prompt(questions).then((answers) => {
 //   message: "What is your intern's school?",
 //   name: "offGitSchool",
 // },
+
+
+
+
+// askToPlayAgain() {
+//   inquirer
+//     .prompt([
+//       {
+//         type: "confirm",
+//         name: "choice",
+//         message: "Play Again?"
+//       }
+//     ])
+//     .then(val => {
+//     
+//       if (val.choice) {
+//         this.play();
+//       } else {
+//         this.quit();
+//       }
+//     });
+// }
