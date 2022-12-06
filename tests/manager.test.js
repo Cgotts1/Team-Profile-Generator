@@ -1,24 +1,22 @@
 const Employee = require("../lib/Employee");
+// const {getOfficeNumber} = require("../lib/Manager")
+
 
 describe("Testing Employee Class", () => {
-  it("should be able to create instance", () => {
+  it("should be able to create instance of Manager", () => {
     //data set up
-    const name = "Ana";
-    const role = "Manager"
+    const name = "Man";
     const id = 77;
-    const email = "ana@ana.com";
-    const officeGitSchool = "userinput"     //Added this one myself
+    const email = "Man.com";
+    const officeNumber = 2     
     //create case
-    const employee = new Employee(name, role, id, email, officeGitSchool);
+    const employee = new Employee(name, id, email, officeNumber);
     //make assertion
     expect(employee.name).toBe(name);
-    expect(employee.role).toBe(role);
     expect(employee.id).toBe(id);
     expect(employee.email).toBe(email);
-    expect(employee.officeGitSchool).toBe(officeGitSchool);
+    expect(employee.officeNumber).toBe(officeNumber);
   });
 });
 
 //test all aspects of this class
-
-// No mocking necessary

@@ -171,8 +171,7 @@ inquirer.prompt(questionsManager).then((answers) => {
   let newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
   employees.push(newManager)
   console.log(employees);
-  mainQuestionFunction()
-
+  mainQuestionFunction()        // Allows to loop through questions
 })
 
 
@@ -187,7 +186,7 @@ if(answers.position === "Engineer"){
     let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
     employees.push(newEngineer)
   console.log(employees)
-  mainQuestionFunction()})
+  mainQuestionFunction()})          //Allows to loop through questions
   
 }
 
@@ -196,12 +195,13 @@ else if(answers.position === "Intern"){
     let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
     employees.push(newIntern)
   console.log(employees)
-  mainQuestionFunction()})
+  mainQuestionFunction()})            //Allows to loop through questions
 
 
 }else{
   console.log("Generating team")
   console.log(employees)
+  // generateHTML()
   //To do: Call generateProfile(employees) and forloop concating objects html cards
 }
   })
