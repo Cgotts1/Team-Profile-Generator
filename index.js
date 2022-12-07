@@ -1,19 +1,13 @@
-//end point = loop through employee array and then convert to html
-
 // Bring in inquirer
 const inquirer = require("inquirer");
 const fs = require("fs");
-
 
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 // const Employee = require("./lib/Employee")
 
-
-
-let employees = []
-
+let employees = [];
 
 // Message at beginning of application
 console.log("Please build your team!");
@@ -49,9 +43,8 @@ const mainQuestion = [
     message: "Which type of team member would you like to add?",
     name: "position",
     choices: ["Engineer", "Intern", "I don't want to add anymore team members"],
-  }
+  },
 ];
-
 
 // Questions for adding an Engineer
 const questionsEngineer = [
@@ -77,7 +70,6 @@ const questionsEngineer = [
   },
 ];
 
-
 // Questions for adding an Intern
 const questionsIntern = [
   {
@@ -102,28 +94,21 @@ const questionsIntern = [
   },
 ];
 
-
 // Generates the HTML page after done creating employees
 function generateHTML() {
-
   let cards = "";
 
   for (let i = 0; i < employees.length; i++) {
-
     if (employees[i].getRole() === "Manager") {
-      cards += generateManagerCard(employees[i])
-    }
-    else if (employees[i].getRole() === "Engineer") {
-      cards += generateEngineerCard(employees[i])
+      cards += generateManagerCard(employees[i]);
+    } else if (employees[i].getRole() === "Engineer") {
+      cards += generateEngineerCard(employees[i]);
     } else if (employees[i].getRole() === "Intern") {
-      cards += generateInternCard(employees[i])
+      cards += generateInternCard(employees[i]);
+    } else {
+      console.log("Please create an employee!");
     }
-    else {
-      console.log("Please create an employee!")
-    }
-
   }
-
 
   const template = `
   <!DOCTYPE html>
@@ -154,26 +139,11 @@ function generateHTML() {
   </footer>
   </body>
 `;
-  // Outputs readme file
-  // fs.writeFile("./dist/output.html", template, () => {
-  //   // console.log("Creating team...");
-  //   generateHTML()
-  // });
-
-  return template
+  return template;
 }
 
-
-
-
-
-
-
-
-
-
+// Generates the Manager Card
 function generateManagerCard(manager) {
-
   const template = `
 <div class="card">
         <h2 class="name">${manager.name}</h2>
@@ -198,18 +168,18 @@ function generateManagerCard(manager) {
 
         <div class="info">
           <h4>ID: ${manager.id}</h4>
-          <h4>Email:<a href = "mailto:${manager.email}">${manager.email}</a></h4>
+          <h4>Email:<a href = "mailto:${manager.email}">${
+    manager.email
+  }</a></h4>
           <h4>Office number: ${manager.officeNumber}</h4>
         </div>
       </div>
-`
-  return template
+`;
+  return template;
 }
 
-
-
+// Generates the Engineer Card
 function generateEngineerCard(engineer) {
-
   const template = `
 
 <div class="card">
@@ -222,20 +192,20 @@ function generateEngineerCard(engineer) {
 
         <div class="info">
           <h4>ID: ${engineer.id}</h4>
-          <h4>Email:<a href = "mailto:${engineer.email}">${engineer.email}</a></h4>
-          <h4>Github: <a href = "https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></h4>
+          <h4>Email:<a href = "mailto:${engineer.email}">${
+    engineer.email
+  }</a></h4>
+          <h4>Github: <a href = "https://github.com/${
+            engineer.gitHub
+          }" target = "_blank">${engineer.gitHub}</a></h4>
         </div>
 </div>
-
-`
-  return template
-
+`;
+  return template;
 }
 
-
-
+// Generates the Intern Card
 function generateInternCard(intern) {
-
   const template = `
 
 <div class="card">
@@ -253,86 +223,62 @@ function generateInternCard(intern) {
           <h4 title = "school">School: ${intern.school}</h4>
         </div>
       </div>
-`
-  return template
+`;
+  return template;
 }
-
-
-
-
-
-
 
 // Enables prompting of questions and takes in users input
 inquirer.prompt(questionsManager).then((answers) => {
-  let newManager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
-  employees.push(newManager)
+  let newManager = new Manager(
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.officeNumber
+  );
+  employees.push(newManager);
   console.log(employees);
-  mainQuestionFunction()        // Allows to loop through questions
-})
+  mainQuestionFunction(); // Allows to loop through questions
+});
 
-
-
+// Asks the main question
 function mainQuestionFunction() {
-
   inquirer.prompt(mainQuestion).then((answers) => {
-
     //"Engineer", "Intern", "I don't want to add anymore team members"
     if (answers.position === "Engineer") {
       inquirer.prompt(questionsEngineer).then((answers) => {
-        let newEngineer = new Engineer(answers.name, answers.id, answers.email, answers.gitHub)
-        employees.push(newEngineer)
-        console.log(employees)
-        mainQuestionFunction()
-      })          //Allows to loop through questions
-
-    }
-
-    else if (answers.position === "Intern") {
+        let newEngineer = new Engineer(
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.gitHub
+        );
+        employees.push(newEngineer);
+        console.log(employees);
+        mainQuestionFunction();
+      }); //Allows to loop through questions
+    } else if (answers.position === "Intern") {
       inquirer.prompt(questionsIntern).then((answers) => {
-        let newIntern = new Intern(answers.name, answers.id, answers.email, answers.school)
-        employees.push(newIntern)
-        console.log(employees)
-        mainQuestionFunction()
-      })            //Allows to loop through questions
-
-
+        let newIntern = new Intern(
+          answers.name,
+          answers.id,
+          answers.email,
+          answers.school
+        );
+        employees.push(newIntern);
+        console.log(employees);
+        mainQuestionFunction(); //Allows to loop through questions
+      });
     } else {
-      console.log("Generating team")
-      console.log(employees)
-      // generateHTML()
-      //To do: Call generateProfile(employees) and forloop concating objects html cards
-
-
+      console.log("Generating team");
+      console.log(employees);
 
       fs.writeFile("./dist/output.html", generateHTML(), (err) => {
         if (err) {
-          throw err
-        } else{
-          console.log("Generating Team Profiles!")
+          throw err;
+        } else {
+          console.log("Generating Team Profiles!");
         }
-
       });
-
-
-
-
     }
-  })
+  });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

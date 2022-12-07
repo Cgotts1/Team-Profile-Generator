@@ -1,5 +1,4 @@
-const Intern = require("../lib/Intern")     // Require Intern class
-
+const Intern = require("../lib/Intern"); // Require Intern class
 
 describe("Testing Employee Class", () => {
   it("should be able to create instance of Intern", () => {
@@ -7,7 +6,7 @@ describe("Testing Employee Class", () => {
     const name = "Int";
     const id = 50;
     const email = "Int@gmail.com";
-    const school = "UCLA"
+    const school = "UCLA";
 
     // Create case
     const employee = new Intern(name, id, email, school);

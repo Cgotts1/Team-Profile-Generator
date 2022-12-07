@@ -1,5 +1,4 @@
-const Manager = require("../lib/Manager")     // Require Manager class
-
+const Manager = require("../lib/Manager"); // Require Manager class
 
 describe("Testing Employee Class", () => {
   it("should be able to create instance of Manager", () => {
@@ -7,7 +6,7 @@ describe("Testing Employee Class", () => {
     const name = "Man";
     const id = 77;
     const email = "Man.com";
-    const officeNumber = 2     
+    const officeNumber = 2;
     // Create case
     const employee = new Manager(name, id, email, officeNumber);
 
