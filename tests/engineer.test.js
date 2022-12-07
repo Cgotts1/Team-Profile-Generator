@@ -1,5 +1,4 @@
-const Employee = require("../lib/Employee");
-// const Engineer = require("./lib/Engineer");
+const Engineer = require("../lib/Engineer");
 
 
 describe("Testing Employee Class", () => {
@@ -10,7 +9,7 @@ describe("Testing Employee Class", () => {
     const email = "eng@gmail.com";
     const gitHub = "9"     //Added this one myself
     //create case
-    const employee = new Employee(name, id, email, gitHub);
+    const employee = new Engineer(name, id, email, gitHub);
     //make assertion
     expect(employee.name).toBe(name);
     expect(employee.id).toBe(id);
