@@ -1,5 +1,5 @@
 const Employee = require("../lib/Employee");
-// const {getOfficeNumber} = require("../lib/Manager")
+const Manager = require("../lib/Manager")
 
 
 describe("Testing Employee Class", () => {
