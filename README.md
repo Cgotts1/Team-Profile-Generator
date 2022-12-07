@@ -13,7 +13,6 @@ Link to video: https://drive.google.com/file/d/1h6JLU5_bIjOT5hWXo3d54XxKFUUBkfhP
 ![GitHub Page](./image/image3.png)
 ![Apllication](./image/image4.png)
 ![Apllication](./image/image5.png)
-![Apllication](./image/image6.png)
 
 ## Table of Contents
 1.) <a href = "#License">License</a><br>
