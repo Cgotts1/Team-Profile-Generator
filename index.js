@@ -13,7 +13,6 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-// const { log } = require("console");
 // const Employee = require("./lib/Employee")
 
 

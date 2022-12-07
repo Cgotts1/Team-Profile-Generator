@@ -10,7 +10,7 @@ describe("Testing Employee Class", () => {
     const email = "Man.com";
     const officeNumber = 2     
     //create case
-    const employee = new Employee(name, id, email, officeNumber);
+    const employee = new Manager(name, id, email, officeNumber);
     //make assertion
     expect(employee.name).toBe(name);
     expect(employee.id).toBe(id);

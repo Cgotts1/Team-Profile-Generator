@@ -1,4 +1,6 @@
 const Employee = require("../lib/Employee");
+// const Engineer = require("./lib/Engineer");
+
 
 describe("Testing Employee Class", () => {
   it("should be able to create instance of an engineer", () => {
@@ -16,5 +18,3 @@ describe("Testing Employee Class", () => {
     expect(employee.gitHub).toBe(gitHub);
   });
 });
-
-//test all aspects of this class

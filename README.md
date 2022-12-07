@@ -26,7 +26,7 @@ Using the Repo: Users can create one manager and as many engineers/interns as th
 Contributing to the Repo: N/A
 
 ## <section id = "Tests">Tests</section>
-Command to Run Tests: npm test
+Command to Run Tests: jest
 
 ## <section id = "Questions">Questions</section>
 If you have any questions, please feel free to contact me: <br><br>
