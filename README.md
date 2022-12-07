@@ -5,7 +5,15 @@
  
 
 ## <section id = "Description">Description</section>
-This project assists users in creating team profiles for their workplace. Using the inquirer package and node.js, a series of questions begin by asking the user to create a manager, after which, they will be prompted of whether they would like to add an engineer or intern. After the user has finished creating their team, upon selecting the option for no more team members, an html page will be generated featuring the user's created team members. The styling of the team member cards utilizes CSS and bootstrap icons..
+This project assists users in creating team profiles for their workplace. Using the inquirer package and node.js, a series of questions begin by asking the user to create a manager, after which, they will be prompted of whether they would like to add an engineer or intern. Once the user has finished creating their team and has select the option for no more team members, an html page will be generated featuring the user's created team members. Tests for the application were done using jest.
+
+Link to video: https://drive.google.com/file/d/1h6JLU5_bIjOT5hWXo3d54XxKFUUBkfhP/view
+![Site](./image/image1.png)
+![Email Link](./image/image2.png)
+![GitHub Page](./image/image3.png)
+![Apllication](./image/image4.png)
+![Apllication](./image/image5.png)
+![Apllication](./image/image6.png)
 
 ## Table of Contents
 1.) <a href = "#License">License</a><br>
