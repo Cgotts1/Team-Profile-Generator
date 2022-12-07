@@ -1,7 +1,8 @@
 body{
-    /* height:100vh; */
+    margin:0px;
 }
 
+/* Header */
 .my-team{
     display:flex;
     justify-content:center;
@@ -11,6 +12,7 @@ body{
     font-size:24px;
 }
 
+/* Space that holds the cards */
 .cards-container{
     display:flex;
     flex-wrap: wrap;
@@ -20,6 +22,7 @@ body{
     height: 100vh;
 }
 
+/* Individual card styling */
 .card{
     background-color: aliceblue;
     box-shadow: 10px 5px 5px rgb(0, 0, 0); 
@@ -33,14 +36,14 @@ h2{
     margin-bottom: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+
 }
 
 h3{
 margin-top: 0px;
 border-bottom-left-radius: 10px;
 border-bottom-right-radius: 10px;
-
-
+font-size: 20px;
 }
 
 h2, h3 {
@@ -59,9 +62,7 @@ h4{
     background-color: rgb(160, 204, 243);
     padding: 0px 10px 0px 10px;
     margin: 0px 10px 10px 10px;
-
 }
-
 
 .card, .info{
     border-radius: 20px;
@@ -72,12 +73,6 @@ svg{
     font-weight: 700;
     border-radius: 50%;
     padding:5px;
-    background-color: black;
+    background-color: rgb(33, 81, 136);
     color:white;
-}
-footer{
-    /* height: 20vh; */
-    opacity: .4;
-    background-color: blue;
-    background-image: url(https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fHdvcmt8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
 }

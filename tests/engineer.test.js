@@ -7,10 +7,12 @@ describe("Testing Employee Class", () => {
     const name = "Eng"; 
     const id = 77;
     const email = "eng@gmail.com";
-    const gitHub = "9"     //Added this one myself
-    //create case
+    const gitHub = "9"    
+
+    // Create case
     const employee = new Engineer(name, id, email, gitHub);
-    //make assertion
+
+    // Make assertion
     expect(employee.name).toBe(name);
     expect(employee.id).toBe(id);
     expect(employee.email).toBe(email);

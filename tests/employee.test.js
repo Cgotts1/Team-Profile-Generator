@@ -1,32 +1,18 @@
-const Employee = require("../lib/Employee");
+const Employee = require("../lib/Employee");   // Require Employee class
 
 describe("Testing Employee Class", () => {
   it("should be able to create instance", () => {
-    //data set up
+    // Data set up
     const name = "Ana";
     const id = 77;
     const email = "ana@ana.com";
-    //create case
-
+    
+    // Create case
     const employee = new Employee(name, id, email);
     
-    //make assertion
+    // Make assertion
     expect(employee.name).toBe(name);
     expect(employee.id).toBe(id);
     expect(employee.email).toBe(email);
   });
 });
-
-//test all aspects of this class
-
-
-
-
-
-
-
-
-
-
-
-// No mocking necessary

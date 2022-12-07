@@ -1,6 +1,6 @@
 //end point = loop through employee array and then convert to html
 
-// Brough in inquirer
+// Bring in inquirer
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -15,7 +15,7 @@ const Manager = require("./lib/Manager");
 let employees = []
 
 
-// Console.log
+// Message at beginning of application
 console.log("Please build your team!");
 
 // Questions at the beginning for creating a manager
@@ -42,7 +42,7 @@ const questionsManager = [
   },
 ];
 
-// Main question that will be asked everytime an employee has been created
+// Main question that will be asked everytime when creaitng a new employee
 const mainQuestion = [
   {
     type: "list",
@@ -103,6 +103,7 @@ const questionsIntern = [
 ];
 
 
+// Generates the HTML page after done creating employees
 function generateHTML() {
 
   let cards = "";
@@ -118,8 +119,7 @@ function generateHTML() {
       cards += generateInternCard(employees[i])
     }
     else {
-      // console.log("Please enter an employee")
-      return 
+      console.log("Please create an employee!")
     }
 
   }
@@ -193,12 +193,12 @@ function generateManagerCard(manager) {
             <path
               d="m4.4.8-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 3.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8Zm3 0-.003.004-.014.019a4.167 4.167 0 0 0-.204.31 2.327 2.327 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.31 3.31 0 0 1-.202.388 5.444 5.444 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 6.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8Zm3 0-.003.004-.014.019a4.077 4.077 0 0 0-.204.31 2.337 2.337 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.593.593 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3.198 3.198 0 0 1-.202.388 5.385 5.385 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4.149 4.149 0 0 0 .204-.31 2.06 2.06 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.593.593 0 0 0-.09-.252A4.334 4.334 0 0 0 9.6 2.8l-.01-.012a5.099 5.099 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a5.446 5.446 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8Z"
             /></svg
-          >${manager.getRole()}
+          > ${manager.getRole()}
 </h3>
 
         <div class="info">
           <h4>ID: ${manager.id}</h4>
-          <h4>Email:<a href = "mailto:${manager.email}"> ${manager.email}</a></h4>
+          <h4>Email:<a href = "mailto:${manager.email}">${manager.email}</a></h4>
           <h4>Office number: ${manager.officeNumber}</h4>
         </div>
       </div>
@@ -217,12 +217,12 @@ function generateEngineerCard(engineer) {
         <h3 class="role">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
                 <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
-              </svg>${engineer.getRole()}
+              </svg> ${engineer.getRole()}
         </h3>
 
         <div class="info">
           <h4>ID: ${engineer.id}</h4>
-          <h4>Email:<a href = "mailto:${engineer.email}"> ${engineer.email}</a></h4>
+          <h4>Email:<a href = "mailto:${engineer.email}">${engineer.email}</a></h4>
           <h4>Github: <a href = "https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></h4>
         </div>
 </div>
@@ -244,12 +244,12 @@ function generateInternCard(intern) {
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mortarboard-fill" viewBox="0 0 16 16">
                 <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
                 <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
-              </svg>${intern.getRole()}
+              </svg> ${intern.getRole()}
         </h3>
 
         <div class="info">
           <h4>ID: ${intern.id}</h4>
-          <h4>Email:<a href = "mailto:${intern.email}"> ${intern.email}</a></h4>
+          <h4>Email:<a href = "mailto:${intern.email}">${intern.email}</a></h4>
           <h4 title = "school">School: ${intern.school}</h4>
         </div>
       </div>
@@ -308,6 +308,8 @@ function mainQuestionFunction() {
       fs.writeFile("./dist/output.html", generateHTML(), (err) => {
         if (err) {
           throw err
+        } else{
+          console.log("Generating Team Profiles!")
         }
 
       });

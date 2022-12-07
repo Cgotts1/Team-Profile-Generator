@@ -1,5 +1,4 @@
-const Employee = require("../lib/Employee");
-const Manager = require("../lib/Manager")
+const Manager = require("../lib/Manager")     // Require Manager class
 
 
 describe("Testing Employee Class", () => {
@@ -9,14 +8,13 @@ describe("Testing Employee Class", () => {
     const id = 77;
     const email = "Man.com";
     const officeNumber = 2     
-    //create case
+    // Create case
     const employee = new Manager(name, id, email, officeNumber);
-    //make assertion
+
+    // Make assertion
     expect(employee.name).toBe(name);
     expect(employee.id).toBe(id);
     expect(employee.email).toBe(email);
     expect(employee.officeNumber).toBe(officeNumber);
   });
 });
-
-//test all aspects of this class
